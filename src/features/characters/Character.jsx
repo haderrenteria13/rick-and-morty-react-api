@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { fetchCharacters } from '../../services/rickAndMortyApi'
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Character = () => {
   const [loading, setLoading] = useState(true)
   const [character, setCharacter] = useState([])
 
-  useEffect (() => {
+  useEffect(() => {
     const getCharacters = async () => {
-      try{
+      try {
         const data = await fetchCharacters()
         setCharacter(data.results)
       } catch (error) {
@@ -26,19 +26,16 @@ const Character = () => {
   }
 
   return (
-    <div>
-      <p className='underline'>Home</p>
-      <ul>
-        {character.map((character) => (
-          <React.Fragment key={character.id}>
-            <li>{character.name}</li>
-            <li>{character.status}</li>
-            <li>{character.species}</li>
-            <Link to={`/personaje/${character.id}`}>Link</Link>
-          </React.Fragment>
-        ))}
-      </ul>
-      <Outlet/>
+    <div className='flex justify-center items-center'>
+      <div className='grid grid-cols-4 gap-5'>
+        {character.map((character) =>
+          <div key={character.id} className='card'>
+            <img src={character.image} alt={character.name} />
+            <h1>{character.name}</h1>
+            <NavLink to={`/personaje/${character.id}`}>Saber más</NavLink>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
