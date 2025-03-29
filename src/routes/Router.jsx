@@ -14,7 +14,7 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/home",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/personajes",
@@ -22,15 +22,15 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/personaje/:id",
-                element: <CharacterDetail/>
+                element: <CharacterDetail />
             },
             {
                 path: "/episodios",
-                element: <Episodes/>
+                element: <Episodes />
             },
             {
                 path: "/locaciones",
-                element: <Locations/>
+                element: <Locations />
             }
         ]
     },
