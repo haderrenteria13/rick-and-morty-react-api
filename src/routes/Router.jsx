@@ -4,8 +4,6 @@ import Navbar from "../components/layout/Navbar"
 import Home from "../features/home/Home"
 import Character from "../features/characters/Character"
 import CharacterDetail from "../features/characters/CharacterDetail"
-import Episodes from "../features/episodes/Episodes"
-import Locations from "../features/locations/Locations"
 
 const Router = createBrowserRouter([
     {
@@ -24,14 +22,6 @@ const Router = createBrowserRouter([
                 path: "/personaje/:id",
                 element: <CharacterDetail />
             },
-            {
-                path: "/episodios",
-                element: <Episodes />
-            },
-            {
-                path: "/locaciones",
-                element: <Locations />
-            }
         ]
     },
     {
